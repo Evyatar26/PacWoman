@@ -1,5 +1,4 @@
-import pygame
-from helpers import *
+from Scripts.helpers import *
 
 class Pac:
     def __init__(self,imgSrcMouthOpen,imgSrcMouthClosed,location,pacWidth,pacHeight):

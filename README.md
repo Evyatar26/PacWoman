@@ -1,8 +1,6 @@
 # PacWoman
 
 Steps:
-* Set up your development environment: Install Python and Pygame on your computer.
-
 * Create the game window: Use Pygame to create a game window with a background image.
 
 * Load the game assets: Load the Pac-Man, ghosts, and pellets images, and any sounds or music you want to include in your game.

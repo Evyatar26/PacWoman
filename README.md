@@ -22,7 +22,6 @@ Steps:
 Using these steps is the power of our success!
 
 Classes:
-
 Main - Everyone - The main file, runs the game.
 
 Pac - Evyatar - The main character.

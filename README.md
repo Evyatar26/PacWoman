@@ -30,3 +30,6 @@ Music - Osher - The music of the game.
 Menu - Tair - The menu of the game.
 Points - Osher - Points that the player gets during the session.
 Leaderboard - Evyatar - The leaderboard of the game.
+
+<img width="623" alt="image" src="https://user-images.githubusercontent.com/91248841/220422680-153e5d4e-d3e2-4e2f-a9a4-4727dd98ec7c.png">
+

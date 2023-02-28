@@ -1,4 +1,4 @@
-from helpers import *
+from Scripts.helpers import *
 import pygame
 
 
@@ -10,9 +10,6 @@ class Button:
         self.font = font
         self.size = size
         self.color = color
-
-    def 
-
 
     def image_button(self):
         img = pygame.image.load(self.image)

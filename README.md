@@ -22,10 +22,10 @@ Steps:
 Using these steps is the power of our success!
 
 Classes: <br />
-Main - Everyone - The main file, runs the game. <br />
+Main - Nehoray - The main file, runs the game. <br />
 Pac - Evyatar - The main character. <br />
 Ghost - Nehoray - The enemies. <br />
-Board - Nehoray - The board of the game. <br />
+Board - Tair - The board of the game. <br />
 Music - Osher - The music of the game. <br />
 Menu - Tair - The menu of the game. <br />
 Points - Osher - Points that the player gets during the session. <br />

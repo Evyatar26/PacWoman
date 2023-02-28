@@ -20,3 +20,16 @@ Steps:
 * Test and polish: Playtest the game and make any necessary tweaks or adjustments to improve gameplay, and add visual effects and polish to make the game more engaging.
 
 Using these steps is the power of our success!
+
+Classes: <br />
+Main - Everyone - The main file, runs the game. <br />
+Pac - Evyatar - The main character. <br />
+Ghost - Nehoray - The enemies. <br />
+Board - Nehoray - The board of the game. <br />
+Music - Osher - The music of the game. <br />
+Menu - Tair - The menu of the game. <br />
+Points - Osher - Points that the player gets during the session. <br />
+Leaderboard - Evyatar - The leaderboard of the game. <br />
+
+<img width="623" alt="image" src="https://user-images.githubusercontent.com/91248841/220422680-153e5d4e-d3e2-4e2f-a9a4-4727dd98ec7c.png">
+

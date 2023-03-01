@@ -1,22 +1,20 @@
-from Scripts.helpers import *
 import pygame
 
 
 class Button:
-    def __init__(self, image, loc, text, font, size, color):
-        self.image = image
-        self.loc = loc
+    def __init__(self, text, position, size, color, font_size, font_color):
         self.text = text
-        self.font = font
+        self.position = position
         self.size = size
         self.color = color
+        self.font_size = font_size
+        self.font_color = font_color
+        self.action = action
 
-    def image_button(self):
-        img = pygame.image.load(self.image)
-        img = pygame.transform.scale(img, self.size)
-        screen.blit(img, self.loc)
+        self.font = pygame.font.Font(None, self.font_size)
+        self.surface = self.font.render(self.text, True, self.font_color)
+        self.rect = self.surface.get_rect(center=self.position)
 
-    def button_text(self):
-        font = pygame.font.SysFont(self.font, self.size)
-        text = font.render(self.text, True, self.color)
-        screen.blit(text, self.loc)
+    def draw(self, surface):
+        pygame.draw.rect(surface, self.color, self.rect)
+        surface.blit(self.surface, self.rect)

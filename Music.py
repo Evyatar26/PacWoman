@@ -8,7 +8,7 @@ class Music:
 
     def play(self):
         pygame.mixer.music.load(self.filename)
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
 
     def pause(self):
         pygame.mixer.music.pause()
@@ -17,7 +17,7 @@ class Music:
         pygame.mixer.music.unpause()
 
     def fadeout(self):
-        pygame.mixer.music.fadeout(20000)
+        pygame.mixer.music.fadeout(3000)
 
     def stop(self):
         pygame.mixer.music.stop()

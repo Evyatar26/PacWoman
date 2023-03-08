@@ -4,6 +4,7 @@ from Classes.Ghost import *
 from Classes.Pacman import *
 from Classes.Pellet import *
 from Classes.Wall import *
+from Music import *
 from Scripts.constants import *
 
 
@@ -67,8 +68,12 @@ class Main:
         self.all_sprites.add(self.ghosts)
 
     def run(self):
+
+        main_theme = Music('pacman music/ingame_theme.mp3')
+        main_theme.play()
         running = True
         while running:
+
             # Handle events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -86,6 +91,8 @@ class Main:
                     # Update the Pacman
                 self.pacman.update(self.walls)
                 self.pacman.eat_pellets(self.pellets)
+
+                # music
 
                 # Update the Ghosts
                 for ghost in self.ghosts:

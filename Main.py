@@ -1,11 +1,14 @@
 import sys
 
+import pygame
+
 from Classes.Ghost import *
-from Classes.Pacman import *
+from Classes.Pacman import Pacman
 from Classes.Pellet import *
 from Classes.Wall import *
 from Classes.Music import *
 from Scripts.constants import *
+from Pacman1 import Pacman1
 
 
 class Main:
@@ -21,6 +24,7 @@ class Main:
         self.walls = pygame.sprite.Group()
         self.pellets = pygame.sprite.Group()
         self.ghosts = pygame.sprite.Group()
+        self.pacman = pygame.sprite.Group()
 
         self.setup()
 
@@ -57,7 +61,7 @@ class Main:
                     self.pellets.add(pellet)
 
         # Create the Pacman
-        self.pacman = Pacman.Pacman(16, 16)
+        self.pacman = Pacman(33, 33)
         self.all_sprites.add(self.pacman)
 
         # Create the Ghosts
@@ -88,30 +92,34 @@ class Main:
                     elif event.key == pygame.K_DOWN:
                         self.pacman.direction = "down"
 
-                    # Update the Pacman
-                self.pacman.update(self.walls)
-                self.pacman.eat_pellets(self.pellets)
+            # Update the Pacman
+            self.pacman.update(self.walls)
+            self.pacman.eat_pellets(self.pellets)
 
-                # music
+            # music
 
-                # Update the Ghosts
-                for ghost in self.ghosts:
-                    ghost.update(self.walls, self.pacman)
+            # Update the Ghosts
+            for ghost in self.ghosts:
+                ghost.update(self.walls, self.pacman)
 
-                # Check if Pacman collides with a ghost
-                if pygame.sprite.spritecollideany(self.pacman, self.ghosts):
-                    self.game_over()
+            # Check if Pacman collides with a ghost
+            if pygame.sprite.spritecollideany(self.pacman, self.ghosts):
+                self.game_over()
 
-                # Draw the scene
-                self.screen.fill(BLACK)
-                self.all_sprites.draw(self.screen)
+            # Draw the scene
+            self.screen.fill(BLACK)
+            self.all_sprites.draw(self.screen)
 
-                # Draw the score
-                score_text = self.font.render(f"Score: {self.score}", True, WHITE)
-                self.screen.blit(score_text, (16, 16))
+            # Draw the score
+            score_text = self.font.render(f"Score: {self.score}", True, WHITE)
+            self.screen.blit(score_text, (16, 16))
 
-                pygame.display.flip()
-                self.clock.tick(60)
+            # create pacman animation
+            # self.pacman.update()
+            # self.pacman.draw()
+
+            pygame.display.flip()
+            self.clock.tick(60)
 
     def game_over(self):
         self.font = pygame.font.SysFont('Arial', 72)

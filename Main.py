@@ -4,7 +4,7 @@ from Classes.Ghost import *
 from Classes.Pacman import *
 from Classes.Pellet import *
 from Classes.Wall import *
-from Music import *
+from Classes.Music import *
 from Scripts.constants import *
 
 

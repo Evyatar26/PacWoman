@@ -71,7 +71,13 @@ class Game:
         self.ghosts.add(Ghost(304, 256, ORANGE))
         self.all_sprites.add(self.ghosts)
 
-    def run(self):
+    def run_menu(self):
+        play_button = "Images/play_button.png"
+        settings_button = "Images/settings_button.jpg"
+        leaderboard_button = "Images/leaderboard_button.png"
+
+
+    def run_game(self):
 
         main_theme = Music('pacman music/ingame_theme.mp3')
         main_theme.play()
@@ -138,7 +144,7 @@ def main():
         pass
 
     if currect_page == "game":
-        Game.run()
+        Game.run_game()
 
     if currect_page == "leaderboard":
         pass

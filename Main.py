@@ -8,7 +8,7 @@ from Classes.Pellet import *
 from Classes.Wall import *
 from Classes.Music import *
 from Scripts.constants import *
-from Pacman1 import Pacman1
+# from Pacman1 import Pacman1
 
 
 class Game:

@@ -11,7 +11,7 @@ from Scripts.constants import *
 from Pacman1 import Pacman1
 
 
-class Main:
+class Game:
     def __init__(self):
         pygame.init()
         self.clock = pygame.time.Clock()
@@ -131,5 +131,21 @@ class Main:
         sys.exit()
 
 
-main = Main()
-main.run()
+def main():
+    currect_page = "menu"
+
+    if currect_page == "menu":
+        pass
+
+    if currect_page == "game":
+        Game.run()
+
+    if currect_page == "leaderboard":
+        pass
+
+    if currect_page == "settings":
+        pass
+
+
+if __name__ == "__main__":
+    main()

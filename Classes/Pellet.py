@@ -1,6 +1,7 @@
 import pygame
 from Scripts.constants import *
 
+
 class Pellet(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()

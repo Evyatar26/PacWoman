@@ -1,6 +1,7 @@
 import pygame
 from Scripts.constants import *
 
+
 class Wall(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height):
         super().__init__()

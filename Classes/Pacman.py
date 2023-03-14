@@ -1,17 +1,29 @@
 import pygame
 from Scripts.constants import *
+import os
+
+from Scripts.helpers import screen
+
+
 class Pacman(pygame.sprite.Sprite):
-    class Pacman(pygame.sprite.Sprite):
-        def __init__(self, x, y):
-            super().__init__()
-            self.image = pygame.Surface((16, 16))
-            self.image.fill(YELLOW)  # Set the color of Pacman
-            self.rect = self.image.get_rect()
-            self.rect.x = x
-            self.rect.y = y
-            self.speed = PACMAN_SPEED
-            self.direction = "right"
-            self.score = 0
+    def __init__(self, width, height):
+        super().__init__()
+        self.images = []
+        for i in range(0, 3):
+            filename = os.path.join('pacwoman_sprites', f'tile00{i}.png')
+            image = pygame.image.load(filename).convert_alpha()
+            image = pygame.transform.scale(image, (width, height))
+            self.images.append(image)
+        self.current_image = 0
+        self.image = self.images[self.current_image]
+        self.rect = self.image.get_rect()
+        self.rect.x = WINDOW_WIDTH // 2
+        self.rect.y = WINDOW_HEIGHT // 2
+        self.animation_delay = ANIMATION_DELAY_PACWOMAN_LEFT_SIDE
+        self.animation_counter = ANIMATION_COUNTER
+        self.speed = PACMAN_SPEED
+        self.direction = "right"
+        self.score = 0
 
     def update(self, walls):
         if self.direction == "left":
@@ -45,9 +57,9 @@ class Pacman(pygame.sprite.Sprite):
                 elif self.direction == "down":
                     self.rect.bottom = wall.rect.top
 
-        def eat_pellets(self, pellets):
-            # Check for collisions with pellets
-            for pellet in pellets:
-                if self.rect.colliderect(pellet.rect):
-                    pellets.remove(pellet)
-                    self.score += 10
+    def eat_pellets(self, pellets):
+        # Check for collisions with pellets
+        for pellet in pellets:
+            if self.rect.colliderect(pellet.rect):
+                pellets.remove(pellet)
+                self.score += 10

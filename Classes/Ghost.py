@@ -2,6 +2,7 @@ import pygame
 import random
 from Scripts.constants import *
 
+
 class Ghost(pygame.sprite.Sprite):
     def __init__(self, x, y, color):
         super().__init__()

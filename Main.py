@@ -11,7 +11,7 @@ from Scripts.constants import *
 # from Pacman1 import Pacman1
 
 
-class Game:
+class Main:
     def __init__(self):
         pygame.init()
         self.clock = pygame.time.Clock()
@@ -71,13 +71,7 @@ class Game:
         self.ghosts.add(Ghost(304, 256, ORANGE))
         self.all_sprites.add(self.ghosts)
 
-    def run_menu(self):
-        play_button = "Images/play_button.png"
-        settings_button = "Images/settings_button.jpg"
-        leaderboard_button = "Images/leaderboard_button.png"
-
-
-    def run_game(self):
+    def run(self):
 
         main_theme = Music('pacman music/ingame_theme.mp3')
         main_theme.play()
@@ -137,21 +131,5 @@ class Game:
         sys.exit()
 
 
-def main():
-    currect_page = "menu"
-
-    if currect_page == "menu":
-        pass
-
-    if currect_page == "game":
-        Game.run_game()
-
-    if currect_page == "leaderboard":
-        pass
-
-    if currect_page == "settings":
-        pass
-
-
-if __name__ == "__main__":
-    main()
+main = Main()
+main.run()

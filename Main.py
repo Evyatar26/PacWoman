@@ -29,39 +29,47 @@ class Main:
         self.setup()
 
     def setup(self):
-        # Create the walls
-        level_map = [
-            "W" * WINDOW_WIDTH,
-            ("W" + " " * (WINDOW_WIDTH - 2) + "W") * ((WINDOW_HEIGHT - 2) // 2),
-            "W" + " " * (WINDOW_WIDTH - 2) + "P",
-            ("W" + " " * (WINDOW_WIDTH - 2) + "W") * ((WINDOW_HEIGHT - 2) // 2),
-            "W" * WINDOW_WIDTH
+        maze = [
+            "##################################################",
+            "#................................................#",
+            "#................................................#",
+            "#..#############..#############..##############..#",
+            "#..#############..#############..##############..#",
+            "#..#############..#############..##############..#",
+            "#................................................#",
+            "#.####.#.####.#.####",
+            "#.####.#.####.#.####",
+            "#......#....#......#",
+            "######.##..##.######",
+            "     #.#....#.##   ",
+            "######.#.#.#.#.######",
+            "      .  #.#.  .     ",
+            "######.#.#.#.#.######",
+            "     #.#.....#.#   ",
+            "######.#.#.#.#.######",
+            "#............#.....#",
+            "#.####.#.#.#.#.####.#",
+            "#.####.#.#.#.#.####.#",
+            "#..#..........#..#",
+            "###.#.#.#.####.#.#.###",
+            "###.#.#.#.####.#.#.###",
+            "#......#....#......#",
+            "#.##########.########",
+            "#..................#",
+            "####################",
         ]
-
-        # add pellets to the level map
-        for i in range(1, WINDOW_HEIGHT - 1):
-            if i % 2 == 1:
-                row = ""
-                for j in range(1, WINDOW_WIDTH - 1):
-                    if j % 2 == 1:
-                        row += "."
-                    else:
-                        row += " "
-                level_map.insert(i, "W" + row + "W")
-
-        for row, tiles in enumerate(level_map):
-            for col, tile in enumerate(tiles):
-                if tile == "W":
-                    wall = Wall(col * 16, row * 16, 16, 16)
-                    self.all_sprites.add(wall)
+        for i in range(len(maze)):
+            for j in range(len(maze[i])):
+                if maze[i][j] == "#":
+                    wall = Wall(j * WALL_WIDTH, i * WALL_HEIGHT)
                     self.walls.add(wall)
-                elif tile == "P":
-                    pellet = Pellet(col * 16 + 4, row * 16 + 4)
-                    self.all_sprites.add(pellet)
-                    self.pellets.add(pellet)
+                    self.all_sprites.add(wall)
+
+        # Add the wall to the all_sprites group
+        self.all_sprites.add(wall)
 
         # Create the Pacman
-        self.pacman = Pacman(33, 33)
+        self.pacman = Pacman(29, 29)
         self.all_sprites.add(self.pacman)
 
         # Create the Ghosts

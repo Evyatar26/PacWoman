@@ -1,8 +1,9 @@
-import pygame
-from Scripts.constants import *
 import os
 
-from Scripts.helpers import screen
+import pygame
+
+
+from Scripts.constants import *
 
 
 class Pacman(pygame.sprite.Sprite):
@@ -57,9 +58,9 @@ class Pacman(pygame.sprite.Sprite):
                 elif self.direction == "down":
                     self.rect.bottom = wall.rect.top
 
-    def eat_pellets(self, pellets):
+    def eat_pellets(self, pellets, main):
         # Check for collisions with pellets
         for pellet in pellets:
             if self.rect.colliderect(pellet.rect):
-                pellets.remove(pellet)
-                self.score += 10
+                pellet.kill()
+                main.score += 10

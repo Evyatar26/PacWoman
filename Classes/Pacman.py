@@ -60,8 +60,11 @@ class Pacman(pygame.sprite.Sprite):
                     self.rect.bottom = wall.rect.top
 
     def eat_pellets(self, pellets, main):
+        minecraft_eating = pygame.mixer.Sound('pacman music/minecraft_eating.mp3')
         # Check for collisions with pellets
         for pellet in pellets:
             if self.rect.colliderect(pellet.rect):
                 pellet.kill()
+                minecraft_eating.stop()
+                minecraft_eating.play()
                 main.score += 10

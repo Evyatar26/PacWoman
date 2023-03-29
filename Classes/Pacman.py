@@ -1,19 +1,19 @@
-import pygame
-from Scripts.constants import *
 import os
 
-from Scripts.helpers import screen
+import pygame
+
+from Scripts.constants import *
 
 
 class Pacman(pygame.sprite.Sprite):
     def __init__(self, width, height):
         super().__init__()
-        self.images = []
-        for i in range(0, 3):
-            filename = os.path.join('pacwoman_sprites', f'tile00{i}.png')
-            image = pygame.image.load(filename).convert_alpha()
-            image = pygame.transform.scale(image, (width, height))
-            self.images.append(image)
+        self.pacwoman_animation = {'L': [], 'R': [], 'U': [], 'D': []}
+        for direction in ['L', 'R', 'U', 'D']:
+            for i in range(1, 4):
+                image = pygame.image.load(f'pacwoman_sprites/pac{direction}{i}.png').convert_alpha()
+                image = pygame.transform.scale(image, (width, height))
+                self.pacwoman_animation[direction].append(image)
         self.current_image = 0
         self.image = self.images[self.current_image]
         self.rect = self.image.get_rect()
@@ -57,9 +57,9 @@ class Pacman(pygame.sprite.Sprite):
                 elif self.direction == "down":
                     self.rect.bottom = wall.rect.top
 
-    def eat_pellets(self, pellets):
+    def eat_pellets(self, pellets, main):
         # Check for collisions with pellets
         for pellet in pellets:
             if self.rect.colliderect(pellet.rect):
-                pellets.remove(pellet)
-                self.score += 10
+                pellet.kill()
+                main.score += 10

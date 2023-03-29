@@ -100,11 +100,11 @@ class Main:
                     if event.key == pygame.K_LEFT:
                         self.pacman.direction = "L"
                     elif event.key == pygame.K_RIGHT:
-                        self.pacman.direction = "right"
+                        self.pacman.direction = "R"
                     elif event.key == pygame.K_UP:
-                        self.pacman.direction = "up"
+                        self.pacman.direction = "U"
                     elif event.key == pygame.K_DOWN:
-                        self.pacman.direction = "down"
+                        self.pacman.direction = "D"
 
             # Update the Pacman
             self.pacman.update(self.walls)

@@ -15,20 +15,20 @@ class Ghost(pygame.sprite.Sprite):
         self.direction = "left"
 
     def change_direction(self):
-        directions = ["left", "right", "up", "down"]
+        directions = ["L", "R", "U", "D"]
         if self.rect.x % 16 == 0 and self.rect.y % 16 == 0:
             self.direction = random.choice(directions)
 
     def collide_with_walls(self, walls):
         for wall in walls:
             if self.rect.colliderect(wall.rect):
-                if self.direction == "right":
+                if self.direction == "R":
                     self.rect.right = wall.rect.left
-                elif self.direction == "left":
+                elif self.direction == "R":
                     self.rect.left = wall.rect.right
-                elif self.direction == "up":
+                elif self.direction == "U":
                     self.rect.top = wall.rect.bottom
-                elif self.direction == "down":
+                elif self.direction == "D":
                     self.rect.bottom = wall.rect.top
 
     def update(self, walls, pacman):

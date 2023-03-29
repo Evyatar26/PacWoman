@@ -8,7 +8,8 @@ from Classes.Pellet import *
 from Classes.Wall import *
 from Classes.Music import *
 from Scripts.constants import *
-from Pacman1 import Pacman1
+from Scripts.helpers import *
+# from Pacman1 import Pacman1
 
 
 class Main:
@@ -57,6 +58,7 @@ class Main:
             "#......................####......................#",
             "##################################################"
         ]
+
         for i in range(len(maze)):
             for j in range(len(maze[i])):
                 if maze[i][j] == "#":
@@ -129,6 +131,7 @@ class Main:
             self.clock.tick(60)
 
     def game_over(self):
+        screen.fill(BLACK)
         self.font = pygame.font.SysFont('Arial', 72)
         game_over_text = self.font.render("GAME OVER", True, RED)
         self.screen.blit(game_over_text, (WINDOW_WIDTH // 2 - 200, WINDOW_HEIGHT // 2 - 50))

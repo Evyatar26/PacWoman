@@ -1,14 +1,10 @@
 import sys
-
 from Classes.Ghost import *
 from Classes.Music import *
 from Classes.Pacman import Pacman
 from Classes.Pellet import *
 from Classes.Wall import *
 from Scripts.helpers import *
-
-
-# from Pacman1 import Pacman1
 
 
 class Main:
@@ -89,9 +85,9 @@ class Main:
     def run(self):
         main_theme = Music('pacman music/ingame_theme.mp3')
         main_theme.play()
+        pygame.mixer.music.set_volume(0.1)
         running = True
         while running:
-
             # Handle events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -115,10 +111,6 @@ class Main:
             # Update the Ghosts
             for ghost in self.ghosts:
                 ghost.update(self.walls, self.pacman)
-
-
-
-
 
             # Check if Pacman collides with a ghost
             if pygame.sprite.spritecollideany(self.pacman, self.ghosts):
@@ -145,6 +137,8 @@ class Main:
         game_over_text = self.font.render("GAME OVER", True, RED)
         self.screen.blit(game_over_text, (WINDOW_WIDTH // 2 - 200, WINDOW_HEIGHT // 2 - 50))
         pygame.display.flip()
+        main_theme = Music('pacman music/ingame_theme.mp3')
+        main_theme.fadeout()
         pygame.time.delay(2000)
         pygame.quit()
         sys.exit()
